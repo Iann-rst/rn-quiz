@@ -8,11 +8,11 @@ import { styles } from './styles';
 import { QUIZ } from '../../data/quiz';
 import { historyAdd } from '../../storage/quizHistoryStorage';
 
+import { ConfirmButton } from '../../components/ConfirmButton';
 import { Loading } from '../../components/Loading';
+import { OutlineButton } from '../../components/OutlineButton';
 import { Question } from '../../components/Question';
 import { QuizHeader } from '../../components/QuizHeader';
-import { ConfirmButton } from '../../components/ConfirmButton';
-import { OutlineButton } from '../../components/OutlineButton';
 
 interface Params {
   id: string;
@@ -69,6 +69,8 @@ export function Quiz() {
 
     if (quiz.questions[currentQuestion].correct === alternativeSelected) {
       setPoints(prevState => prevState + 1);
+    }else{
+      handleNextQuestion()
     }
 
     setAlternativeSelected(null);
